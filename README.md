@@ -13,7 +13,7 @@ DuReader 下载地址为 [http://ai.baidu.com/broad/introduction?dataset=dureade
 | amount  | 201574   | 946880   | 421703 |
 | avg len | 5        | 394      | 67     |
 
-下面给出一个例子：
+数据格式示例：
 
 ```
 {
@@ -40,17 +40,16 @@ DuReader 下载地址为 [http://ai.baidu.com/broad/introduction?dataset=dureade
 ### 数据获取
 
 ```shell
-$ cd data
+$ cd data/DuReader
 $ ./download.sh
 ```
 
 下载得到的数据分为 raw 和 preprocessed 两部分，preprocessed 的数据是经过 raw 预处理得到的。预处理的主要工作是，对于 question、answers 等中文文本作分词处理，处理的结果分别放在  segmented_question、segmented_answers 中
 
-### 清洗数据
+## 数据源 —— 保险行业问答开放数据集
 
-将预处理过（preprocessed）的训练集整理到 sqlite 中
+### 基本信息
 
-```shell
-$ cd code
-$ python gen_db.py --files ../data/preprocessed/trainset/search.train.json ../data/preprocessed/trainset/zhidao.train.json
-```
+该数据源是保险领域首个开放的QA语料库，其包含从网站 [Insurance Library](http://www.insurancelibrary.com/) 收集的问题和答案
+
+数据集下载地址为 [https://github.com/Samurais/insuranceqa-corpus-zh](https://github.com/Samurais/insuranceqa-corpus-zh)
