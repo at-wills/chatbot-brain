@@ -1,0 +1,6 @@
+preprocessed/
+raw/
+*.pyc
+.idea/
+copyright
+*.db
