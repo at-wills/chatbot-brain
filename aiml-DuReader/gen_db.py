@@ -15,11 +15,12 @@ def gen_db(files):
         question_type TEXT,
         fact_or_opinion TEXT,
         keywords TEXT,
-        category TEXT);''')
+        category TEXT)''')
     c.execute('''CREATE TABLE answer
         (answer_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
         question_id INTEGER,
-        answer TEXT);''')
+        answer TEXT)''')
+    c.execute('CREATE INDEX question_id_index ON answer (question_id ASC)')
     conn.commit()
     conn.close()
 
@@ -46,6 +47,6 @@ def add_question(question):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--files', nargs='+', required=True,
-            help='file list to generate template from.')
+        help='file list to generate template from.')
     args = parser.parse_args()
     gen_db(args.files)
