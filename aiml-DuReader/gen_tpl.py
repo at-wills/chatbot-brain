@@ -16,6 +16,7 @@ def gen_tpl(file):
         rows = c.fetchall()
         for row in rows:
             print row[0]
+            if row[1] == '': continue
             cursor = c.execute('SELECT answer FROM answer WHERE question_id=?', (row[0],))
             answers = c.fetchall()
             if len(answers) == 1:
